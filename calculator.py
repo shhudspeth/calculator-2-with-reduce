@@ -1,8 +1,9 @@
 """CLI application for a prefix-notation calculator."""
 
 from arithmetic import (add, subtract, multiply, divide, square, cube,
-                        power, mod, )
+                        power, mod, my_reduce )
 from functools import reduce
+
 
 # Replace this with your code
 '''
@@ -67,13 +68,11 @@ def my_calculator(lines=None):
             else:
                 print("invalid expression. try again please")
         else:
-            print("longer expression--trying reduce")
             try:
                 sequence_list=[]
                 for x in input_token[1:]:
                     sequence_list.append(float(x))
                 if input_token[0].startswith('+'):
-                    print("add")
                     print(reduce(add, sequence_list))
                 elif input_token[0].startswith('-'):
                         print(reduce(subtract, sequence_list))
